@@ -1,4 +1,4 @@
-from typing import Tuple, Type
+from typing import Tuple, Type, List
 import numpy as np
 import scipy.stats
 
@@ -10,7 +10,7 @@ class AbstractSearch():
         pass
     def __call__(self, *args, **kwargs) -> Individual:
         pass
-    def getInforTasks(self, IndClass: Type[Individual], tasks: list[AbstractTask], seed = None):
+    def getInforTasks(self, IndClass: Type[Individual], tasks: List[AbstractTask], seed = None):
         self.dim_uss = max([t.dim for t in tasks])
         self.nb_tasks = len(tasks)
         self.tasks = tasks

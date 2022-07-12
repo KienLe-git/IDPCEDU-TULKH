@@ -1,4 +1,4 @@
-from typing import Deque, Tuple, Type
+from typing import Deque, Tuple, Type, List
 import numpy as np
 from ..tasks.task import AbstractTask
 from ..EA import Individual, Population
@@ -11,7 +11,7 @@ class AbstractCrossover():
 
     def __call__(self, pa: Individual, pb: Individual, skf_oa= None, skf_ob= None, *args, **kwargs) -> Tuple[Individual, Individual]:
         pass
-    def getInforTasks(self, IndClass: Type[Individual], tasks: list[AbstractTask], seed = None):
+    def getInforTasks(self, IndClass: Type[Individual], tasks: List[AbstractTask], seed = None):
         self.dim_uss = max([t.dim for t in tasks])
         self.nb_tasks = len(tasks)
         self.tasks = tasks

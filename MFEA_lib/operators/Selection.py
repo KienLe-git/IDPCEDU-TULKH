@@ -6,9 +6,9 @@ from ..EA import *
 class AbstractSelection():
     def __init__(self, *args, **kwds) -> None:
         pass
-    def __call__(self, population:Population, nb_inds_tasks:list, *args, **kwds) -> list[int]:
+    def __call__(self, population:Population, nb_inds_tasks:List, *args, **kwds) -> List[int]:
         pass
-    def getInforTasks(self, tasks: list[AbstractTask], seed = None):
+    def getInforTasks(self, tasks: List[AbstractTask], seed = None):
         self.dim_uss = max([t.dim for t in tasks])
 
         #seed
@@ -21,7 +21,7 @@ class ElitismSelection(AbstractSelection):
         self.random_percent = random_percent
         
         
-    def __call__(self, population:Population, nb_inds_tasks: list, *args, **kwds) -> list[int]:
+    def __call__(self, population:Population, nb_inds_tasks: List, *args, **kwds) -> List[int]:
         ls_idx_selected = []
         for idx_subpop, subpop in enumerate(population):
             N_i = min(nb_inds_tasks[idx_subpop], len(subpop))
